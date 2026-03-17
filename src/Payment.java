@@ -1,5 +1,5 @@
 // Interface: Payment
-interface Payment {
+public interface Payment {
     double processPayment(double amount);
     void generateReceipt(double amount);
 }
