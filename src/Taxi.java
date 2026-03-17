@@ -15,8 +15,8 @@ public class Taxi extends TransportVehicle implements Payment {
 
     @Override
     public String getDetails() {
-        return "Taxi ID: " + getVehicleID() + ", Driver: " + driverName +
-               ", Capacity: " + getCapacity() + ", Fuel: " + getFuelType();
+        return "Taxi ID: " + getVehicleID() + " Driver: " + driverName +
+               ", Capacity: " + getCapacity() + " Fuel: " + getFuelType();
     }
 
     public void assignDriver(String driverName) {
