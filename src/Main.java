@@ -9,7 +9,7 @@ public class Main {
         System.out.println("=============================================");
 
         try {
-            // Dynamic input for Bus
+            //  inputs for Bus
             System.out.print("Enter Bus ID: ");
             String busID = scanner.nextLine();
             System.out.print("Enter Bus Capacity: ");
@@ -23,7 +23,7 @@ public class Main {
 
             Bus bus = new Bus(busID, busCapacity, busFuel, busRoute, hasAC);
 
-            // Dynamic input for Taxi
+            //  inputs for Taxi
             System.out.print("Enter Taxi ID: ");
             String taxiID = scanner.nextLine();
             System.out.print("Enter Taxi Capacity: ");
@@ -37,7 +37,7 @@ public class Main {
 
             Taxi taxi = new Taxi(taxiID, taxiCapacity, taxiFuel, driverName, baseFare);
 
-            // Dynamic input for Passenger
+            // inputs for Passenger
             System.out.print("Enter Passenger ID: ");
             String passengerID = scanner.nextLine();
             System.out.print("Enter Passenger Name: ");
@@ -66,14 +66,14 @@ public class Main {
             System.out.println(passenger.getPassengerDetails());
 
         } catch (NumberFormatException e) {
-            System.out.println("❌ Invalid numeric input. Please enter numbers correctly.");
+            System.out.println(" Invalid numeric input. Please enter numbers correctly.");
             System.out.println("Error details: " + e.getMessage());
         } catch (Exception e) {
-            System.out.println("❌ Unexpected error: " + e.getMessage());
-            e.printStackTrace(); // This will help you debug
+            System.out.println(" Unexpected error: " + e.getMessage());
+            e.printStackTrace(); 
         } finally {
             scanner.close();
-            System.out.println("\n✅ Program execution completed safely.");
+            System.out.println("\n Program execution completed safely.");
         }
     }
 }
