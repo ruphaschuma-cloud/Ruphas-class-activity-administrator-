@@ -1,54 +1,26 @@
-# Transportation Management System
 
-## Project Description
-This Transportation Management System is an Object-Oriented Programming project that simulates a real-world transportation booking platform. The system allows users to:
-- Create and manage buses and taxis
-- Register passengers
-- Book tickets for different vehicles
-- Process payments
-- Schedule maintenance operations
+Transport Management System
+ Overview
+The Transport Management System is a Java application that simulates the management of different transport modes (Bus, Taxi) and their interaction with passengers. It demonstrates object-oriented programming (OOP) principles such as encapsulation, abstraction, and dynamic input handling.
 
-## Exceptions Implemented
+FEARTURES
+1.Dynamic Input
+Enter details for buses, taxis, and passengers at runtime.
+Bus Operations:
+  - Display route information
+  - Schedule service and perform checkups
+Taxi Operations:
+  - Assign drivers
+  - Process payments
+  - Generate receipts
+Passenger Operations:
+  - Book tickets for buses and taxis
+  - View passenger details
 
-### Custom Exception Classes
+2.How to Run
+1. Clone or download the repository.
+2. Compile the project:
+   -bash
+   javac Main.java Bus.java Taxi.java Passenger.java
 
-1. **VehicleException**
-   - Thrown when there are issues with vehicle creation or operation
-   - Examples: Invalid vehicle ID format, negative capacity, invalid fuel type
-
-2. **BookingException**
-   - Thrown when booking operations fail
-   - Examples: Attempting to book on non-operational vehicle, invalid distance
-
-3. **PaymentException**
-   - Thrown during payment processing
-   - Examples: Negative payment amount, vehicle not operational
-
-4. **InvalidInputException**
-   - Thrown for invalid user input
-   - Examples: Empty passenger name, invalid ID format
-
-### Exception Handling Examples
-
-```java
-// Example 1: Vehicle Creation with Exception Handling
-try {
-    Bus bus = new Bus("", 50, "Diesel", "Route 12", true);
-} catch (VehicleException e) {
-    System.out.println("Error: " + e.getMessage());
-    // Output: Error: Vehicle ID cannot be null or empty
-}
-
-// Example 2: Booking with Exception Handling
-try {
-    passenger.bookTicket(nonOperationalBus, 15);
-} catch (BookingException e) {
-    System.out.println("Booking failed: " + e.getMessage());
-}
-
-// Example 3: Input Validation
-try {
-    Passenger passenger = new Passenger("", "Alice", "TK123");
-} catch (InvalidInputException e) {
-    System.out.println("Invalid input: " + e.getMessage());
-}
+3.Run the programusing java main
