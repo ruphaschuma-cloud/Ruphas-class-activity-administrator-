@@ -1,35 +1,46 @@
 public class Bus extends TransportVehicle {
-    private String routeNumber;
+    private String route;
     private boolean hasAC;
 
-    public Bus(String vehicleID, int capacity, String fuelType, String routeNumber, boolean hasAC) {
-        super(vehicleID, capacity, fuelType);
-        this.routeNumber = routeNumber;
+    public Bus(String busID, int capacity, String fuelType, String route, boolean hasAC) {
+        super(busID, capacity, fuelType);
+        this.route = route;
         this.hasAC = hasAC;
     }
 
     @Override
     public double calculateFare(double distance) {
-        double rate = hasAC ? 3.0 : 2.0;
-        return distance * rate;
+        // Example fare calculation: base rate per km
+        double ratePerKm = hasAC ? 3.0 : 2.0; // AC buses cost more
+        return distance * ratePerKm;
+    }
+
+    @Override
+    public void displayInfo() {
+        System.out.println("Bus " + vehicleID + " | Route: " + route +
+                           " | Capacity: " + capacity +
+                           " | Fuel: " + fuelType +
+                           " | AC: " + (hasAC ? "Yes" : "No"));
+    }
+
+    public void displayRouteInfo() {
+        System.out.println("Bus " + vehicleID + " runs on route: " + route);
+    }
+
+    public void scheduleService() {
+        System.out.println("Bus " + vehicleID + " scheduled for service.");
+    }
+
+    public void performCheckup() {
+        System.out.println("Bus " + vehicleID + " is undergoing a routine checkup.");
     }
 
     @Override
     public String getDetails() {
-        return "Bus ID: " + getVehicleID() + ", Route: " + routeNumber +
-               ", Capacity: " + getCapacity() + ", Fuel: " + getFuelType();
-    }
-
-    public void displayRouteInfo() {
-        System.out.println("Bus " + getVehicleID() + " operates on route " + routeNumber +
-                           " | AC Available: " + hasAC);
-    }
-
-    public void scheduleService() {
-        System.out.println("Bus " + getVehicleID() + " scheduled for service.");
-    }
-
-    public void performCheckup() {
-        System.out.println("Bus " + getVehicleID() + " is undergoing a routine checkup.");
+        return "Bus ID: " + vehicleID +
+               ", Route: " + route +
+               ", Capacity: " + capacity +
+               ", Fuel: " + fuelType +
+               ", AC: " + (hasAC ? "Yes" : "No");
     }
 }
