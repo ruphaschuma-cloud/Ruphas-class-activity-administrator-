@@ -1,7 +1,7 @@
 public abstract class TransportVehicle {
-    private String vehicleID;
-    private int capacity;
-    private String fuelType;
+    protected String vehicleID;
+    protected int capacity;
+    protected String fuelType;
 
     public TransportVehicle(String vehicleID, int capacity, String fuelType) {
         this.vehicleID = vehicleID;
@@ -9,12 +9,17 @@ public abstract class TransportVehicle {
         this.fuelType = fuelType;
     }
 
-    // Abstract method
+    // Abstract method: subclasses must implement their own fare calculation
     public abstract double calculateFare(double distance);
 
-    // Concrete method
+    // Abstract method: subclasses must implement their own display logic
+    public abstract void displayInfo();
+
+    // Concrete method: common details for all vehicles
     public String getDetails() {
-        return "VehicleID: " + vehicleID + ", Capacity: " + capacity + ", FuelType: " + fuelType;
+        return "VehicleID: " + vehicleID +
+               ", Capacity: " + capacity +
+               ", FuelType: " + fuelType;
     }
 
     // Getters
