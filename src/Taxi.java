@@ -1,45 +1,47 @@
-public class Taxi extends TransportVehicle implements Payment {
+public class Taxi extends TransportVehicle {
     private String driverName;
     private double baseFare;
 
-    public Taxi(String vehicleID, int capacity, String fuelType, String driverName, double baseFare) {
-        super(vehicleID, capacity, fuelType);
+    public Taxi(String taxiID, int capacity, String fuelType, String driverName, double baseFare) {
+        super(taxiID, capacity, fuelType);
         this.driverName = driverName;
         this.baseFare = baseFare;
     }
 
     @Override
-    public double calculateFare(double distance) {
-        return baseFare + (distance * 10);
-    }
-
-    @Override
-    public String getDetails() {
-        return "Taxi ID: " + getVehicleID() + " Driver: " + driverName +
-               ", Capacity: " + getCapacity() + " Fuel: " + getFuelType();
+    public void displayInfo() {
+        System.out.println("Taxi " + vehicleID + " | Driver: " + driverName +
+                           " | Capacity: " + capacity +
+                           " | Fuel: " + fuelType +
+                           " | Base Fare: " + baseFare);
     }
 
     public void assignDriver(String driverName) {
         this.driverName = driverName;
-        System.out.println("Driver assigned: " + driverName);
+        System.out.println("Driver " + driverName + " assigned to Taxi " + vehicleID);
     }
 
-    @Override
+    // Payment-like methods, but inside Taxi itself
     public double processPayment(double amount) {
-        System.out.println("Payment of " + amount + " processed for Taxi " + getVehicleID());
+        System.out.println("Payment of " + amount + " processed for Taxi " + vehicleID);
         return amount;
     }
 
-    @Override
     public void generateReceipt(double amount) {
-        System.out.println("Receipt: Taxi " + getVehicleID() + " | Amount Paid: " + amount);
+        System.out.println("Receipt: Taxi " + vehicleID +
+                           " | Driver: " + driverName +
+                           " | Amount Paid: " + amount);
     }
 
-    public void scheduleService() {
-        System.out.println("Taxi " + getVehicleID() + " scheduled for service.");
+    public String getDetails() {
+        return "Taxi ID: " + vehicleID +
+               ", Driver: " + driverName +
+               ", Capacity: " + capacity +
+               ", Fuel: " + fuelType +
+               ", Base Fare: " + baseFare;
     }
-
-    public void performCheckup() {
-        System.out.println("Taxi " + getVehicleID() + " is undergoing a routine checkup.");
-    }
+    @Override
+public double calculateFare(double distance) {
+    return baseFare + (distance * 5.0); // example: base fare + per km rate
+}
 }
