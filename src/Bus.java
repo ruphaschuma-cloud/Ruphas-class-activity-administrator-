@@ -16,7 +16,7 @@ public class Bus extends TransportVehicle {
     }
 
     @Override
-    public void displayInfo() {
+      public void displayInfo() {
         System.out.println("Bus " + vehicleID + " | Route: " + route +
                            " | Capacity: " + capacity +
                            " | Fuel: " + fuelType +
